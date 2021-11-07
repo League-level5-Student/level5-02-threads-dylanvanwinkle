@@ -39,6 +39,7 @@ public class WorkQueue implements Runnable {
 	}
 
 	public void shutdown() {
+		completeAllJobs();
 		isRunning = false;
 		synchronized (jobQueue) {
 			jobQueue.notifyAll();
